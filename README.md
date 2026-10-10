@@ -89,14 +89,3 @@ python main.py /path/to/requirements --output-dir /path/to/output-workspace --ty
 也可以直接传入 `requirements.yaml` 文件路径。输出目录必须与本仓库分开；平台运行时也可以通过上述环境变量提供目录。
 
 智能体会调用模型生成应用、安装前后端依赖、构建并测试。完整运行需要有效模型网关、相应额度和浏览器环境。本仓库不包含私有网关凭据、比赛需求数据或官方评测结果。
-
-输出通常包括 `frontend/`、`backend/`、`.arc/`、`evogit/`、`MODEL_STATUS.json` 等。发生异常时检查 `AGENT_FAILURE.json`；入口的零退出码本身不代表生成成功，应结合诊断和验收结果判断。
-
-## 本地验证
-
-```bash
-python -X utf8 -m unittest discover -s tests
-```
-
-2026-10-10 公开归档前，以上命令在本地 Windows 环境通过 **65 项测试**。这些测试验证智能体逻辑，不等同于官方 GUI 评测；本次归档未重新执行需要真实模型调用的完整比赛任务。
-
